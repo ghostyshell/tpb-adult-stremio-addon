@@ -1,0 +1,10 @@
+# Railpack configuration
+# Forces the build platform to use the Dockerfile rather than auto-detecting
+# the Node.js version from a runtime image (which may default to an older version).
+
+[build]
+use_dockerfile = true
+
+[dockerfile]
+path = "Dockerfile"
+context = "."

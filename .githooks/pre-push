@@ -1,0 +1,22 @@
+#!/bin/sh
+# Pre-push hook: run tests + enforce 100% coverage before any push.
+#
+# Install: sh ~/Code/scripts/install-hooks.sh
+# To bypass in an emergency: git push --no-verify (document why in the commit)
+
+set -e
+
+# ── 1. Tests + coverage ──────────────────────────────────────────────────────
+printf '[pre-push] Running tests with coverage...\n' >&2
+if ! npm run test:coverage --silent; then
+  printf '\n[pre-push] BLOCKED: tests or coverage check failed. Fix before pushing.\n' >&2
+  exit 1
+fi
+printf '[pre-push] Tests passed. Coverage at 100%%.\n' >&2
+
+# ── 2. /sync-docs reminder (non-blocking) ────────────────────────────────────
+if [ -f README.md ]; then
+  printf '\n[pre-push] Reminder: run /sync-docs in Claude Code to audit README + docs.\n' >&2
+fi
+
+exit 0
