@@ -1,0 +1,11 @@
+node_modules/
+.env
+*.log
+.DS_Store
+.next/
+dist/
+
+# Local agent instructions
+.claude/agents/
+graphify-out/
+coverage/

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0F0F23" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>Privacy Policy — TPB 4K Porn Stremio Addon</title>
+  <meta name="description" content="Privacy policy for the TPB 4K Porn self-hosted Stremio addon. Explains what data is handled, what is cached in Redis, and what is never stored." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://akshatsinghkaushik.github.io/stremio-tpb-porn/privacy.html" />
+  <link rel="icon" href="/stremio-tpb-porn/site/favicon.svg" type="image/svg+xml" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" />
+
+  <script>
+    window.tailwind = {
+      config: {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              bg: '#0F0F23', primary: '#1E1B4B', secondary: '#4338CA',
+              accent: '#22C55E', fg: '#F8FAFC', muted: '#27273B',
+              border: '#312E81', 'fg-dim': '#94A3B8',
+            },
+            fontFamily: {
+              display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+              body:    ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
+  <style>
+    :focus-visible { outline: 2px solid #22C55E; outline-offset: 3px; border-radius: 4px; }
+  </style>
+</head>
+
+<body class="bg-bg text-fg font-body antialiased">
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 px-4 sm:px-6 lg:px-8 py-4" style="background:rgba(15,15,35,0.95); border-bottom:1px solid #1E1B4B; backdrop-filter:blur(8px);">
+    <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="font-display font-bold text-fg hover:text-accent transition-colors flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-accent" fill="#22C55E" viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        TPB 4K Porn
+      </a>
+      <a href="https://github.com/akshatsinghkaushik/stremio-tpb-porn" class="text-fg-dim text-sm hover:text-accent transition-colors">GitHub</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <h1 class="font-display text-4xl font-bold text-fg mb-3">Privacy Policy</h1>
+    <p class="text-fg-dim text-sm mb-12">Last updated: <time datetime="2026-06-14">June 2026</time></p>
+
+    <div class="space-y-10 text-fg-dim leading-relaxed">
+
+      <!-- Overview -->
+      <section aria-labelledby="overview-h">
+        <h2 id="overview-h" class="font-display text-2xl font-semibold text-fg mb-4">Overview</h2>
+        <p>
+          This page describes the data practices of the <strong class="text-fg">TPB 4K Porn Stremio Addon</strong> — a self-hosted, open-source Node.js server that acts as a Stremio addon. Because the addon is self-hosted, the operator (the person who deploys it) controls all data. End users interact with their own instance, often one they deploy themselves.
+        </p>
+        <p class="mt-4">
+          The short version: <strong class="text-fg">your debrid API keys and metadata keys are never stored server-side.</strong> They live only in your personal install URL and in your browser.
+        </p>
+      </section>
+
+      <!-- What is handled -->
+      <section aria-labelledby="handled-h">
+        <h2 id="handled-h" class="font-display text-2xl font-semibold text-fg mb-4">What data is handled</h2>
+
+        <h3 class="font-display text-lg font-medium text-fg mb-2 mt-6">Debrid provider API keys</h3>
+        <p>
+          When you configure the addon on the <code class="text-accent px-1 rounded" style="background:rgba(34,197,94,0.1);">/configure</code> page, your debrid API key (Real-Debrid, TorBox, PikPak, etc.) is embedded in your personal install URL as a <strong class="text-fg">base64url-encoded JSON blob</strong>. This segment travels inside every Stremio API call, where the server decodes it at request time and uses it to call the relevant debrid API.
+        </p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li>The key is <strong class="text-fg">not stored</strong> in any database, log file, or Redis cache.</li>
+          <li>The configure form uses HTTP POST so keys are <strong class="text-fg">not written to server access logs</strong> (they never appear in query strings on form submission).</li>
+          <li>The key is <strong class="text-fg">never shared</strong> with any party other than the debrid provider's own API.</li>
+        </ul>
+
+        <h3 class="font-display text-lg font-medium text-fg mb-2 mt-6">TPDB and StashDB API keys</h3>
+        <p>
+          Your ThePornDB (TPDB) and StashDB API keys follow the same model as debrid keys — encoded in the install URL, decoded per-request, used only to call the respective metadata API. They are not persisted server-side.
+        </p>
+        <p class="mt-3">
+          If the operator sets a <em>server-side</em> TPDB or StashDB key (via <code class="text-accent px-1 rounded" style="background:rgba(34,197,94,0.1);">TPDB_API_KEY</code> / <code class="text-accent px-1 rounded" style="background:rgba(34,197,94,0.1);">STASHDB_API_KEY</code> environment variables), that key is stored in the deployment environment (e.g. as a container environment variable) by the operator, not by this software.
+        </p>
+
+        <h3 class="font-display text-lg font-medium text-fg mb-2 mt-6">Redis cache contents</h3>
+        <p>When Redis is connected, the following data is cached:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-2">
+          <li><strong class="text-fg">Catalog torrent lists</strong> — raw torrent metadata (title, infoHash, seeders, size, cover URL) fetched from public torrent indexes. TTL: 30 minutes.</li>
+          <li><strong class="text-fg">Cover/poster images</strong> — resolved image URLs for torrent covers. TTL: 24 hours.</li>
+          <li><strong class="text-fg">TPDB metadata</strong> — scene titles, performer names, cover images from ThePornDB, keyed by infoHash. TTL: 30 days. This is shared across all users of the same instance (see below).</li>
+          <li><strong class="text-fg">StashDB metadata</strong> — scene metadata from StashDB, keyed by infoHash. TTL: 30 days. Also shared.</li>
+          <li><strong class="text-fg">Debrid-resolved file metadata</strong> — CDN URL, file name, and size for a resolved torrent, keyed by a hash of the user's API key + IP. TTL: 4 hours. This cache scope ensures CDN URLs minted for one user are never returned to a different user.</li>
+          <li><strong class="text-fg">PornRips magnet URLs</strong> — resolved magnet/torrent URLs keyed by post slug. TTL: 30 days.</li>
+          <li><strong class="text-fg">Torrent records</strong> — full torrent record (title, infoHash, URLs) for items shown in the catalog, keyed by the Stremio item ID. TTL: 6 hours.</li>
+        </ul>
+        <p class="mt-4">
+          <strong class="text-fg">What is NOT in Redis:</strong> debrid API keys, TPDB/StashDB user keys, IP addresses (only a one-way hash is used for cache scoping), or any personal identifiers.
+        </p>
+
+        <h3 class="font-display text-lg font-medium text-fg mb-2 mt-6">IP addresses</h3>
+        <p>
+          The addon extracts your public IP address from the incoming request (<code class="text-accent px-1 rounded" style="background:rgba(34,197,94,0.1);">req.ip</code>, after trust-proxy processing) for two purposes:
+        </p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong class="text-fg">Real-Debrid and TorBox IP forwarding</strong>: your public IP is forwarded to these two providers so the CDN links they mint are bound to your location (required for proper playback). Your IP goes directly to the debrid provider's API — not stored by this addon.</li>
+          <li><strong class="text-fg">Cache scope</strong>: a one-way SHA-1 hash of <code>(apiKey | userIp)</code> is used as a Redis cache-key prefix for debrid stream results. This ensures CDN URLs are never shared across users or locations. The raw IP is never written to Redis.</li>
+        </ul>
+        <p class="mt-3">Your IP may appear in the server's HTTP access logs (if the operator's hosting provider or reverse proxy logs requests), subject to the operator's own logging and data retention settings.</p>
+
+        <h3 class="font-display text-lg font-medium text-fg mb-2 mt-6">Shared metadata cache</h3>
+        <p>
+          The TPDB and StashDB metadata caches are <strong class="text-fg">shared across all installs</strong> on the same server instance. This is a deliberate design: once any user with a metadata API key has matched a torrent, the result (title, cover, description) is cached under the torrent's infoHash and served to every subsequent user — including those without their own key.
+        </p>
+        <p class="mt-3">
+          This does not expose any personal data. The shared cache contains only metadata about torrents (titles, covers, descriptions from TPDB/StashDB), not information about the users who triggered the lookups.
+        </p>
+      </section>
+
+      <!-- What is NOT collected -->
+      <section aria-labelledby="not-collected-h">
+        <h2 id="not-collected-h" class="font-display text-2xl font-semibold text-fg mb-4">What is not collected</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>No user accounts, profiles, or identities.</li>
+          <li>No persistent storage of debrid API keys, TPDB/StashDB keys, or any credential.</li>
+          <li>No tracking pixels, analytics scripts, or third-party telemetry.</li>
+          <li>No cookies (the configure page uses a POST form; no session cookies are set).</li>
+          <li>No advertising or data brokering.</li>
+        </ul>
+      </section>
+
+      <!-- Third-party APIs -->
+      <section aria-labelledby="third-party-h">
+        <h2 id="third-party-h" class="font-display text-2xl font-semibold text-fg mb-4">Third-party API calls</h2>
+        <p>Depending on configuration, the addon may call these external services:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-2">
+          <li><strong class="text-fg">The debrid provider you chose</strong> (e.g. Real-Debrid, TorBox). Your API key and torrent infoHash are sent to their API. Subject to that provider's own privacy policy.</li>
+          <li><strong class="text-fg">ThePornDB (api.theporndb.net)</strong> — scene metadata lookups. Torrent titles are sent as search queries. Subject to TPDB's privacy policy.</li>
+          <li><strong class="text-fg">StashDB (stashdb.org)</strong> — scene metadata via GraphQL. Subject to StashDB's privacy policy.</li>
+          <li><strong class="text-fg">The operator's torrent-search backend</strong> — catalog browse/search requests routed through the backend. Subject to that service's own policies.</li>
+        </ul>
+        <p class="mt-4">This addon does not control and is not responsible for the data practices of these third-party services.</p>
+      </section>
+
+      <!-- Self-hosted note -->
+      <section aria-labelledby="selfhosted-h">
+        <h2 id="selfhosted-h" class="font-display text-2xl font-semibold text-fg mb-4">Self-hosted deployments</h2>
+        <p>
+          Because this software is self-hosted, the <strong class="text-fg">operator</strong> (the person running the server) is the data controller for their deployment. If you are running a shared instance for multiple users, you are responsible for communicating your own data practices to those users and complying with applicable privacy laws.
+        </p>
+        <p class="mt-3">
+          The software itself does not send any data to the project maintainers. There is no telemetry or phone-home behaviour.
+        </p>
+      </section>
+
+      <!-- Contact -->
+      <section aria-labelledby="contact-h">
+        <h2 id="contact-h" class="font-display text-2xl font-semibold text-fg mb-4">Contact</h2>
+        <p>
+          Questions about this privacy policy or the addon's data practices can be raised as a GitHub issue at <a href="https://github.com/akshatsinghkaushik/stremio-tpb-porn/issues" class="text-accent underline hover:no-underline">github.com/akshatsinghkaushik/stremio-tpb-porn/issues</a>.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="py-8 px-4 sm:px-6 lg:px-8 mt-8" style="background:#08081A; border-top:1px solid #1E1B4B;" role="contentinfo">
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-fg-dim text-sm">TPB 4K Porn Stremio Addon · GPL-3.0</p>
+      <nav class="flex gap-6" aria-label="Footer navigation">
+        <a href="index.html" class="text-fg-dim text-sm hover:text-accent transition-colors">Home</a>
+        <a href="https://github.com/akshatsinghkaushik/stremio-tpb-porn" class="text-fg-dim text-sm hover:text-accent transition-colors">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

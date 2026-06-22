@@ -1,0 +1,17 @@
+#!/bin/sh
+# Pre-commit: changelog, addon version sync, semver regression guard.
+# Auto-bumps patch when src/ changes land without a version bump.
+# Install: sh scripts/install-hooks.sh
+
+cd "$(dirname "$0")/.." || exit 1
+
+if ! sh scripts/changelog-check.sh; then
+  exit 1
+fi
+
+if ! node scripts/addon-version.mjs pre-commit; then
+  echo "[pre-commit] Fix version issues above, then commit again." >&2
+  exit 1
+fi
+
+exit 0

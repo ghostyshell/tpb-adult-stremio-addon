@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0F0F23"/>
+
+  <!-- Grid lines (horizontal) -->
+  <g opacity="0.05" stroke="#22C55E" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+  </g>
+  <!-- Grid lines (vertical) -->
+  <g opacity="0.04" stroke="#4338CA" stroke-width="1">
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+  </g>
+
+  <!-- Gradient overlay -->
+  <rect width="1200" height="630" fill="url(#bg-grad)"/>
+  <defs>
+    <radialGradient id="bg-grad" cx="30%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1E1B4B" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0F0F23" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow-filter">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Play icon - large, centered left -->
+  <g transform="translate(140, 215)">
+    <!-- Outer ring -->
+    <circle cx="100" cy="100" r="96" stroke="#22C55E" stroke-width="2" opacity="0.25" fill="none"/>
+    <circle cx="100" cy="100" r="80" fill="#22C55E" opacity="0.1"/>
+    <!-- Play triangle -->
+    <polygon points="72,58 148,100 72,142" fill="#22C55E" filter="url(#glow-filter)"/>
+    <polygon points="72,58 148,100 72,142" fill="#86EFAC" opacity="0.3"/>
+  </g>
+
+  <!-- Title text -->
+  <text x="340" y="248" font-family="system-ui, sans-serif" font-weight="700" font-size="90" fill="#F8FAFC" letter-spacing="-2">TPB</text>
+  <text x="340" y="360" font-family="system-ui, sans-serif" font-weight="700" font-size="90" fill="#22C55E" letter-spacing="-2">4K Porn</text>
+
+  <!-- Subtitle -->
+  <text x="342" y="415" font-family="system-ui, sans-serif" font-weight="400" font-size="32" fill="#94A3B8">Self-hosted adult Stremio addon · 14 debrid providers</text>
+
+  <!-- Pills -->
+  <rect x="342" y="450" width="155" height="42" rx="21" fill="#1E1B4B" stroke="#312E81" stroke-width="1.5"/>
+  <text x="420" y="477" font-family="system-ui, sans-serif" font-size="20" fill="#94A3B8" text-anchor="middle">GPL-3.0</text>
+
+  <rect x="510" y="450" width="175" height="42" rx="21" fill="#1E1B4B" stroke="#312E81" stroke-width="1.5"/>
+  <text x="597" y="477" font-family="system-ui, sans-serif" font-size="20" fill="#94A3B8" text-anchor="middle">Open Source</text>
+
+  <rect x="700" y="450" width="140" height="42" rx="21" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+  <text x="770" y="477" font-family="system-ui, sans-serif" font-size="20" fill="#22C55E" text-anchor="middle">Docker</text>
+
+  <!-- GitHub URL bottom right -->
+  <text x="1160" y="600" font-family="system-ui, sans-serif" font-size="22" fill="#312E81" text-anchor="end">akshatsinghkaushik/stremio-tpb-porn</text>
+
+  <!-- Accent line -->
+  <line x1="340" y1="230" x2="1160" y2="230" stroke="#1E1B4B" stroke-width="1"/>
+</svg>
