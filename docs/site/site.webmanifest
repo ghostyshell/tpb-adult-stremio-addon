@@ -1,0 +1,17 @@
+{
+  "name": "TPB 4K Porn Stremio Addon",
+  "short_name": "TPB 4K Porn",
+  "description": "Self-hosted adult Stremio addon with 4K catalogs and 14 debrid providers.",
+  "start_url": "/stremio-tpb-porn/",
+  "display": "standalone",
+  "background_color": "#0F0F23",
+  "theme_color": "#0F0F23",
+  "icons": [
+    {
+      "src": "/stremio-tpb-porn/site/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
