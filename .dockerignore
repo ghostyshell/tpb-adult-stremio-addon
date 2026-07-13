@@ -1,0 +1,22 @@
+# Exclude everything the Dockerfile never COPYs, so the build context sent to
+# the builder is just src + public + configs (a few MB, not the full repo).
+node_modules
+.next
+.git
+.claude
+.cursor
+.opencode
+.github
+.githooks
+docs
+logs
+graphify-out
+scripts
+.env
+.env.example
+*.log
+.DS_Store
+AGENTS.md
+CLAUDE.md
+README.md
+CHANGELOG.md

@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0F0F23" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>TPB 4K Porn - Self-Hosted Adult Stremio Addon · 12 Debrid Providers</title>
+  <meta name="description" content="TPB 4K Porn is a self-hosted, open-source Stremio addon delivering adult 4K and 1080p torrent catalogs from multiple trackers with optional Real-Debrid, TorBox and 10 more debrid providers for instant CDN streams." />
+  <meta name="keywords" content="Stremio addon, adult stremio, stremio porn, 4K adult torrents, real-debrid stremio, torbox stremio, self-hosted stremio addon, TPDB metadata, ThePornDB, debrid stremio adult" />
+  <meta name="author" content="akshatsinghkaushik" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <link rel="canonical" href="https://akshatsinghkaushik.github.io/stremio-tpb-porn/" />
+  <link rel="icon" href="/stremio-tpb-porn/site/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/stremio-tpb-porn/site/favicon.svg" />
+  <link rel="manifest" href="/stremio-tpb-porn/site/site.webmanifest" />
+  <link rel="sitemap" type="application/xml" href="/stremio-tpb-porn/site/sitemap.xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TPB 4K Porn Stremio Addon" />
+  <meta property="og:title" content="TPB 4K Porn - Self-Hosted Adult Stremio Addon" />
+  <meta property="og:description" content="Self-hosted Stremio addon with 4K &amp; 1080p adult catalogs, 12 debrid providers, TPDB metadata enrichment, and a polished configure UI. Open-source, GPL-3.0." />
+  <meta property="og:url" content="https://akshatsinghkaushik.github.io/stremio-tpb-porn/" />
+  <meta property="og:image" content="https://akshatsinghkaushik.github.io/stremio-tpb-porn/site/og-image.svg" />
+  <meta property="og:image:alt" content="TPB 4K Porn Stremio Addon - cinematic dark hero with neon green play motif" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TPB 4K Porn - Self-Hosted Adult Stremio Addon" />
+  <meta name="twitter:description" content="Self-hosted Stremio addon: 4K adult catalogs, 12 debrid providers, TPDB metadata. Open-source, GPL-3.0." />
+  <meta name="twitter:image" content="https://akshatsinghkaushik.github.io/stremio-tpb-porn/site/og-image.svg" />
+  <meta name="twitter:image:alt" content="TPB 4K Porn hero artwork" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://github.com" />
+
+  <!-- Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" />
+
+  <!-- Tailwind Play CDN - config MUST be set before the CDN script loads. -->
+  <script>
+    window.tailwind = {
+      config: {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              bg:        '#0F0F23',
+              primary:   '#1E1B4B',
+              secondary: '#4338CA',
+              accent:    '#22C55E',
+              fg:        '#F8FAFC',
+              muted:     '#27273B',
+              border:    '#312E81',
+              dest:      '#EF4444',
+              'fg-dim':  '#94A3B8',
+              'accent-dim': '#16A34A',
+            },
+            fontFamily: {
+              display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+              body:    ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              'neon-green': '0 0 0 1px rgba(34,197,94,0.3), 0 0 20px rgba(34,197,94,0.15)',
+              'neon-indigo': '0 0 0 1px rgba(67,56,202,0.4), 0 0 24px rgba(67,56,202,0.2)',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TPB 4K Porn",
+    "softwareVersion": "1.9.91",
+    "alternateName": "stremio-tpb-porn",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Stremio Addon",
+    "operatingSystem": "Any (self-hosted via Docker or Node.js)",
+    "url": "https://akshatsinghkaushik.github.io/stremio-tpb-porn/",
+    "downloadUrl": "https://github.com/akshatsinghkaushik/stremio-tpb-porn",
+    "license": "https://github.com/akshatsinghkaushik/stremio-tpb-porn/blob/main/LICENSE",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "akshatsinghkaushik", "url": "https://github.com/akshatsinghkaushik" },
+    "description": "Self-hosted Stremio addon that delivers adult 4K and 1080p torrent catalogs from multiple trackers with optional Real-Debrid, TorBox and 10 more debrid providers for instant CDN stream resolution, plus optional TPDB/StashDB metadata enrichment.",
+    "image": "https://akshatsinghkaushik.github.io/stremio-tpb-porn/site/og-image.svg",
+    "featureList": [
+      "4K and 1080p adult torrent catalogs",
+      "12 debrid providers: Real-Debrid, TorBox, Premiumize and more",
+      "Optional TPDB and StashDB scene metadata enrichment",
+      "PornRips, PornTube, and Hentai source integrations",
+      "Per-user base64url config - debrid keys never stored server-side",
+      "Multi-instance manifest splitting for large catalog sets",
+      "Redis-backed caching with shared community metadata store",
+      "Background metadata enricher - catalog loads stay fast",
+      "MediaFlow Proxy support for stream proxying",
+      "Polished tabbed configure UI - no app needed"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need a debrid account to use this addon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Without a debrid account the addon returns direct magnet (P2P) streams that Stremio can play via its built-in torrent client. A debrid account (Real-Debrid, TorBox, etc.) adds instant CDN streams that are faster and more reliable." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are my debrid API keys stored?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nowhere on the server. Your keys are encoded in your personal install URL (base64url JSON) and never logged or persisted server-side. Each Stremio request includes the key in the URL segment that the addon decodes at request time." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I self-host it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Build the Docker image (docker build -t stremio-tpb-porn .) and run it with BACKEND_URL pointing to your torrent-search backend. Then open /configure on your server to generate install URLs." }
+      },
+      {
+        "@type": "Question",
+        "name": "What content sources does it support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "HiddenBay (thepiratebay-style 4K/1080p), TorrentGalaxy, MagnetDL, LimeTorrents, PornRips scene releases, PornTube, and Hentai episodes. Sources can be mixed or selected individually." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is TPDB and why do I need an API key?",
+        "acceptedAnswer": { "@type": "Answer", "text": "TPDB (ThePornDB) provides scene titles, performers, cover images, and descriptions matched to torrent filenames. An API key is optional - without one you still get catalog covers but not enriched metadata. The server-side shared cache means that once any user with a key has matched a torrent, all users benefit even without their own key." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the source code open?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The code is on GitHub under GPL-3.0. Issues, pull requests, and discussion are welcome." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TPB 4K Porn Stremio Addon",
+    "url": "https://akshatsinghkaushik.github.io/stremio-tpb-porn/",
+    "publisher": { "@type": "Person", "name": "akshatsinghkaushik", "url": "https://github.com/akshatsinghkaushik" }
+  }
+  </script>
+
+  <style>
+    /* Skip-link */
+    .skip-link:not(:focus) { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .skip-link:focus { position:fixed; top:1rem; left:1rem; z-index:9999; padding:.5rem 1rem; background:#22C55E; color:#0F0F23; font-weight:700; border-radius:.5rem; outline:2px solid #fff; }
+
+    /* Cinematic grid */
+    .cinema-grid {
+      background-image:
+        linear-gradient(to bottom, rgba(15,15,35,0) 0%, rgba(15,15,35,0.85) 70%, #0F0F23 100%),
+        linear-gradient(rgba(34,197,94,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(67,56,202,0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 64px 64px, 64px 64px;
+    }
+
+    /* Neon glow text */
+    .neon-text { color: #22C55E; text-shadow: 0 0 8px rgba(34,197,94,0.5), 0 0 32px rgba(34,197,94,0.2); }
+
+    /* Focus ring */
+    :focus-visible { outline: 2px solid #22C55E; outline-offset: 3px; border-radius: 4px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* Animations (gated) */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-up { animation: fadeUp 0.6s cubic-bezier(.23,1,.32,1) both; }
+      .fade-up-d1 { animation-delay: 0.1s; }
+      .fade-up-d2 { animation-delay: 0.2s; }
+      .fade-up-d3 { animation-delay: 0.3s; }
+      @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+      .pulse-dot { animation: pulseDot 2s ease-in-out infinite; }
+      @keyframes pulseDot { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+    }
+
+    /* Card hover glow */
+    .card-hover { transition: border-color .2s, box-shadow .2s; }
+    .card-hover:hover { border-color: #4338CA; box-shadow: 0 0 0 1px rgba(67,56,202,0.3), 0 8px 32px rgba(67,56,202,0.15); }
+
+    /* Summary marker */
+    details summary::-webkit-details-marker { display: none; }
+    details summary::marker { display: none; }
+
+    /* Code blocks */
+    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+    /* Discord & Ko-fi buttons */
+    .kofi { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(49,46,129,0.4); border: 1px solid #312E81; border-radius: 12px; color: #F8FAFC; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.15s; }
+    .kofi:hover { background: rgba(67,56,202,0.3); border-color: #FF5E5B; }
+    .kofi svg { width: 18px; height: 18px; fill: #FF5E5B; }
+    .discord { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(49,46,129,0.4); border: 1px solid #312E81; border-radius: 12px; color: #F8FAFC; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.15s; }
+    .discord:hover { background: rgba(67,56,202,0.3); border-color: #5865F2; }
+    .discord svg { width: 18px; height: 18px; fill: #5865F2; }
+  </style>
+</head>
+
+<body class="bg-bg text-fg font-body antialiased">
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+  <header class="relative overflow-hidden cinema-grid min-h-screen flex flex-col justify-center" style="background-color:#0F0F23;">
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+
+      <!-- Addon icon -->
+      <div class="inline-flex items-center justify-center w-24 h-24 mb-8 fade-up" style="background:rgba(42,13,13,0.3); border:1px solid rgba(139,0,0,0.4); border-radius:20px; padding:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="80" height="80" aria-hidden="true">
+          <defs>
+            <radialGradient id="hero-bg" cx="50%" cy="38%" r="68%"><stop offset="0%" stop-color="#2a0d0d"/><stop offset="100%" stop-color="#070000"/></radialGradient>
+            <filter id="hero-glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="hero-softglow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="256" height="256" rx="44" fill="url(#hero-bg)"/>
+          <path d="M 128 46 C 86 46 60 74 60 112 C 60 138 74 158 96 166 L 96 188 C 96 192 100 196 104 196 L 152 196 C 156 196 160 192 160 188 L 160 166 C 182 158 196 138 196 112 C 196 74 170 46 128 46 Z" fill="#241010"/>
+          <rect x="104" y="174" width="11" height="20" rx="4" fill="#070000"/><rect x="122" y="174" width="11" height="20" rx="4" fill="#070000"/><rect x="140" y="174" width="11" height="20" rx="4" fill="#070000"/>
+          <ellipse cx="128" cy="80" rx="46" ry="22" fill="#3a1818" opacity="0.3"/>
+          <circle cx="104" cy="112" r="25" fill="#0d0303"/><circle cx="104" cy="112" r="18" fill="#c23010" opacity="0.35" filter="url(#hero-glow)"/><circle cx="104" cy="112" r="12" fill="#e04820"/><circle cx="104" cy="112" r="7" fill="#ff7040" filter="url(#hero-softglow)"/><circle cx="104" cy="112" r="3" fill="#ffc090"/>
+          <circle cx="152" cy="112" r="25" fill="#0d0303"/><circle cx="152" cy="112" r="18" fill="#c23010" opacity="0.35" filter="url(#hero-glow)"/><circle cx="152" cy="112" r="12" fill="#e04820"/><circle cx="152" cy="112" r="7" fill="#ff7040" filter="url(#hero-softglow)"/><circle cx="152" cy="112" r="3" fill="#ffc090"/>
+          <ellipse cx="128" cy="148" rx="7" ry="9" fill="#070000"/>
+        </svg>
+      </div>
+
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-4 fade-up fade-up-d1">
+        <span class="text-fg">TPB </span><span class="neon-text">4K Porn</span>
+      </h1>
+
+      <p class="text-xl sm:text-2xl text-fg-dim font-display font-medium mb-6 fade-up fade-up-d1">
+        Self-hosted adult Stremio addon
+      </p>
+
+      <p class="max-w-2xl mx-auto text-base sm:text-lg text-fg-dim leading-relaxed mb-10 fade-up fade-up-d2">
+        4K &amp; 1080p adult torrent catalogs from multiple trackers. Optional scene metadata from TPDB and StashDB. Stream resolution via 12 debrid providers including Real-Debrid and TorBox - or fall back to P2P.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-d3">
+        <a href="https://github.com/akshatsinghkaushik/stremio-tpb-porn"
+           class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-display font-semibold text-bg text-lg transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-accent"
+           style="background:#22C55E;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+        <a href="architecture.md"
+           class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-display font-semibold text-fg text-lg transition-all hover:border-accent card-hover focus-visible:ring-2 focus-visible:ring-accent"
+           style="background:rgba(49,46,129,0.4); border:1px solid #312E81;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-fg-dim" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Read the Docs
+        </a>
+      </div>
+
+      <!-- Support links -->
+      <div class="mt-10 flex flex-wrap gap-3 justify-center fade-up fade-up-d3">
+        <a href="https://discord.gg/EbHcTNAqca" target="_blank" rel="noopener noreferrer" class="discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.891.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          Join Discord
+        </a>
+        <a href="https://ko-fi.com/ghosty99" target="_blank" rel="noopener noreferrer" class="kofi">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.258 8.363c-.003-.023-.005-.045-.008-.068-.01-.05-.02-.1-.035-.148-.012-.045-.03-.087-.048-.13-.017-.04-.037-.078-.058-.115-.023-.04-.05-.075-.077-.112-.027-.035-.055-.07-.086-.102-.03-.032-.063-.06-.096-.09-.035-.03-.07-.057-.108-.083-.037-.025-.077-.047-.117-.068-.04-.02-.082-.04-.125-.056-.045-.017-.09-.03-.137-.042-.047-.012-.095-.022-.144-.03-.024-.004-.047-.007-.07-.01-.03-.003-.06-.005-.09-.006-.03-.002-.06-.003-.09-.003-.03 0-.06.002-.09.003-.03.002-.06.004-.09.007-.023.002-.046.005-.07.009-.048.008-.096.018-.143.03-.047.012-.093.025-.138.042-.043.016-.084.035-.124.056-.04.02-.08.042-.118.067-.037.025-.073.053-.108.083-.034.028-.066.058-.096.09-.03.032-.058.066-.085.102-.028.036-.054.072-.077.112-.022.037-.042.075-.058.115-.02.043-.036.085-.05.13-.014.048-.024.098-.034.148-.003.023-.005.045-.008.068-.003.023-.005.046-.006.07-.002.03-.003.06-.003.09 0 .03.002.06.003.09.002.03.004.06.007.09.002.023.005.046.009.07.008.048.018.096.03.143.012.047.025.093.042.138.016.043.035.084.056.124.02.04.042.08.067.118.025.037.053.073.083.108.028.034.058.066.09.096.032.03.066.058.102.085.036.028.072.054.112.077.037.022.075.042.115.058.043.02.085.036.13.05.048.014.098.024.148.034.023.003.045.005.068.008.023.003.046.005.07.006.03.002.06.003.09.003.03 0 .06-.002.09-.003.03-.002.06-.004.09-.007.023-.002.046-.005.07-.009.048-.008.096-.018.143-.03.047-.012.093-.025.138-.042.043-.016.084-.035.124-.056.04-.02.08-.042.118-.067.037-.025.073-.053.108-.083.034-.028.066-.058.096-.09.03-.032.058-.066.085-.102.028-.036.054-.072.077-.112.022-.037.042-.075.058-.115.02-.043.036-.085.05-.13.014-.048.024-.098.034-.148.003-.023.005-.045.008-.068.003-.023.005-.046.006-.07.002-.03.003-.06.003-.09 0-.03-.002-.06-.003-.09-.002-.03-.004-.06-.007-.09-.002-.023-.005-.046-.009-.07zM11.67 16.5c-3.73 0-6.75-3.02-6.75-6.75 0-3.73 3.02-6.75 6.75-6.75s6.75 3.02 6.75 6.75c0 3.73-3.02 6.75-6.75 6.75zm0-12c-2.9 0-5.25 2.35-5.25 5.25s2.35 5.25 5.25 5.25 5.25-2.35 5.25-5.25-2.35-5.25-5.25-5.25z"/></svg>
+          Support on Ko-fi
+        </a>
+        <a href="https://adult-addons.click" target="_blank" rel="noopener noreferrer" class="discord" style="border-color:rgba(255,55,95,0.35);">
+          <svg viewBox="0 0 24 24" aria-hidden="true" style="fill:#FF375F;"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 0 1 7.75 6H4.25A8 8 0 0 1 12 4Zm-7.9 8h15.8A8 8 0 0 1 12 20a8 8 0 0 1-7.9-8Z"/></svg>
+          Stremio adult addons
+        </a>
+      </div>
+
+      <!-- Live pill -->
+      <div class="mt-6 flex justify-center fade-up fade-up-d3">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium" style="background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.25); color:#22C55E;">
+          <span class="w-2 h-2 rounded-full bg-accent pulse-dot" aria-hidden="true"></span>
+          Open-source · GPL-3.0 · Self-hosted
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN CONTENT ──────────────────────────────────────────────────────── -->
+  <main id="main-content">
+
+    <!-- ── WHAT IT IS ──────────────────────────────────────────────────────── -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" aria-labelledby="what-heading">
+      <div class="max-w-4xl mx-auto">
+        <h2 id="what-heading" class="font-display text-3xl sm:text-4xl font-bold text-fg mb-6 text-center">What it is</h2>
+        <p class="text-fg-dim text-lg leading-relaxed text-center max-w-2xl mx-auto mb-12">
+          A Node.js Express server that speaks the Stremio addon protocol. Deploy it on any Docker host or VPS, open the configure page, and install the generated addon URLs into Stremio. Your debrid API keys never touch the server - they live only in your personal install URL.
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div class="rounded-xl p-6 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(34,197,94,0.15);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#22C55E" stroke-width="2" aria-label="Catalog icon"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-fg mb-2">Catalog</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">Browse adult content by category (XXX, Trans, Gay, Lesbian, JAV) or studio, in Top and Recent sort orders, across 4K and 1080p quality tiers.</p>
+          </div>
+          <div class="rounded-xl p-6 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(67,56,202,0.2);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#818CF8" stroke-width="2" aria-label="Metadata icon"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-fg mb-2">Metadata</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">Scene titles, performer names, cover images, and descriptions sourced from TPDB and StashDB. A community-shared cache means the whole user base benefits from a single lookup.</p>
+          </div>
+          <div class="rounded-xl p-6 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(34,197,94,0.15);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#22C55E" stroke-width="2" aria-label="Stream icon"><polygon points="5 3 19 12 5 21 5 3" stroke="#22C55E" fill="none"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-fg mb-2">Stream</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">Resolves magnets through your debrid provider into instant CDN links. Per-file stream entries for multi-file packs. P2P fallback when debrid misses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURES ────────────────────────────────────────────────────────── -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" style="background:#0A0A1E;" aria-labelledby="features-heading">
+      <div class="max-w-5xl mx-auto">
+        <h2 id="features-heading" class="font-display text-3xl sm:text-4xl font-bold text-fg mb-12 text-center">Key features</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <!-- Feature cards -->
+          <article class="rounded-xl p-5 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4"/></svg>
+            <h3 class="font-display font-semibold text-fg mb-1">12 Debrid Providers</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">Real-Debrid, TorBox, Premiumize, EasyDebrid, Debrid-Link, Offcloud, Put.io, Deepbrid, LinkSnappy, Mega-Debrid, Debrider, Seedr.</p>
+          </article>
+
+          <article class="rounded-xl p-5 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <h3 class="font-display font-semibold text-fg mb-1">Multiple Content Sources</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">HiddenBay 4K/1080p, TorrentGalaxy, MagnetDL, LimeTorrents, PornRips scene releases, PornTube (via TPDB), and Hentai episodes.</p>
+          </article>
+
+          <article class="rounded-xl p-5 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+            <h3 class="font-display font-semibold text-fg mb-1">TPDB + StashDB Metadata</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">Enriches torrent items with scene titles, performers, cover art, and descriptions. A 30-day shared Redis cache benefits every user from a single lookup.</p>
+          </article>
+
+          <article class="rounded-xl p-5 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <h3 class="font-display font-semibold text-fg mb-1">Keys Never Leave Your Browser</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">Debrid API keys are encoded in your personal install URL (base64url JSON), never stored on the server or logged.</p>
+          </article>
+
+          <article class="rounded-xl p-5 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 21h8M12 17v4"/></svg>
+            <h3 class="font-display font-semibold text-fg mb-1">Tabbed Configure UI</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">Dark configure page with tabs for Tokens, Streams, Catalogs, and Display. Searchable studio picker, quality toggles, per-provider install URLs.</p>
+          </article>
+
+          <article class="rounded-xl p-5 card-hover" style="background:#1E1B4B; border:1px solid #312E81;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+            <h3 class="font-display font-semibold text-fg mb-1">Redis Caching</h3>
+            <p class="text-fg-dim text-sm leading-relaxed">Catalog lists, cover images, debrid links, and metadata cached in Redis. Degrades gracefully to no-ops when Redis is absent - nothing breaks.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ────────────────────────────────────────────────────── -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" aria-labelledby="how-heading">
+      <div class="max-w-3xl mx-auto">
+        <h2 id="how-heading" class="font-display text-3xl sm:text-4xl font-bold text-fg mb-4 text-center">How it works</h2>
+        <p class="text-fg-dim text-center mb-12">From deploy to playing in Stremio - five steps.</p>
+        <ol class="space-y-6" role="list">
+
+          <li class="flex gap-5">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center font-display font-bold text-bg text-lg" style="background:#22C55E;" aria-label="Step 1">1</span>
+            <div>
+              <h3 class="font-display font-semibold text-fg mb-1">Deploy the server</h3>
+              <p class="text-fg-dim text-sm leading-relaxed">Run the Docker container on any VPS, home server, or container host. Set <code class="text-accent px-1 rounded" style="background:rgba(34,197,94,0.1);">BACKEND_URL</code> and optionally <code class="text-accent px-1 rounded" style="background:rgba(34,197,94,0.1);">REDIS_URL</code> + metadata API keys.</p>
+            </div>
+          </li>
+
+          <li class="flex gap-5">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center font-display font-bold text-bg text-lg" style="background:#22C55E;" aria-label="Step 2">2</span>
+            <div>
+              <h3 class="font-display font-semibold text-fg mb-1">Open /configure</h3>
+              <p class="text-fg-dim text-sm leading-relaxed">Browse to <code class="text-accent px-1 rounded" style="background:rgba(34,197,94,0.1);">https://your-host/configure</code>. Enter your debrid API key(s), TPDB/StashDB tokens, and choose which catalogs to enable.</p>
+            </div>
+          </li>
+
+          <li class="flex gap-5">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center font-display font-bold text-bg text-lg" style="background:#22C55E;" aria-label="Step 3">3</span>
+            <div>
+              <h3 class="font-display font-semibold text-fg mb-1">Generate install URLs</h3>
+              <p class="text-fg-dim text-sm leading-relaxed">Click <em>Generate Install URLs</em>. The form builds one or more <code class="text-accent px-1 rounded" style="background:rgba(34,197,94,0.1);">stremio://…</code> URLs, each carrying your config in a base64url segment.</p>
+            </div>
+          </li>
+
+          <li class="flex gap-5">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center font-display font-bold text-bg text-lg" style="background:#22C55E;" aria-label="Step 4">4</span>
+            <div>
+              <h3 class="font-display font-semibold text-fg mb-1">Install in Stremio</h3>
+              <p class="text-fg-dim text-sm leading-relaxed">Click <em>Install in Stremio</em> for each generated addon. Stremio fetches the manifest, discovers the catalogs, and shows them in your sidebar under the addon name.</p>
+            </div>
+          </li>
+
+          <li class="flex gap-5">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center font-display font-bold text-bg text-lg" style="background:#22C55E;" aria-label="Step 5">5</span>
+            <div>
+              <h3 class="font-display font-semibold text-fg mb-1">Browse and play</h3>
+              <p class="text-fg-dim text-sm leading-relaxed">Stremio calls catalog/meta/stream endpoints. The addon resolves magnets through your debrid provider and returns instant CDN URLs - or P2P streams as fallback.</p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── CONFIGURATION HIGHLIGHTS ───────────────────────────────────────── -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" style="background:#0A0A1E;" aria-labelledby="config-heading">
+      <div class="max-w-4xl mx-auto">
+        <h2 id="config-heading" class="font-display text-3xl sm:text-4xl font-bold text-fg mb-4 text-center">Configuration highlights</h2>
+        <p class="text-fg-dim text-center mb-12 max-w-xl mx-auto">Key environment variables for operators. Full reference in <a href="configuration.md" class="text-accent underline hover:no-underline">docs/configuration.md</a>.</p>
+        <div class="rounded-2xl overflow-hidden" style="border:1px solid #312E81;">
+          <table class="w-full text-sm">
+            <thead style="background:#1E1B4B;">
+              <tr>
+                <th class="px-5 py-3 text-left font-display font-semibold text-fg">Variable</th>
+                <th class="px-5 py-3 text-left font-display font-semibold text-fg">Required</th>
+                <th class="px-5 py-3 text-left font-display font-semibold text-fg">Description</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y" style="divide-color:#27273B;">
+              <tr style="background:#0F0F23;">
+                <td class="px-5 py-3"><code class="text-accent">BACKEND_URL</code></td>
+                <td class="px-5 py-3 text-fg-dim">Yes*</td>
+                <td class="px-5 py-3 text-fg-dim">External torrent-search backend API base URL</td>
+              </tr>
+              <tr style="background:#0A0A1E;">
+                <td class="px-5 py-3"><code class="text-accent">REDIS_URL</code></td>
+                <td class="px-5 py-3 text-fg-dim">No</td>
+                <td class="px-5 py-3 text-fg-dim">Redis connection URL - enables caching and background enrichment</td>
+              </tr>
+              <tr style="background:#0F0F23;">
+                <td class="px-5 py-3"><code class="text-accent">TPDB_API_KEY</code></td>
+                <td class="px-5 py-3 text-fg-dim">No</td>
+                <td class="px-5 py-3 text-fg-dim">ThePornDB API key for server-side metadata enrichment</td>
+              </tr>
+              <tr style="background:#0A0A1E;">
+                <td class="px-5 py-3"><code class="text-accent">STASHDB_API_KEY</code></td>
+                <td class="px-5 py-3 text-fg-dim">No</td>
+                <td class="px-5 py-3 text-fg-dim">StashDB GraphQL API key (merged with TPDB per field)</td>
+              </tr>
+              <tr style="background:#0F0F23;">
+                <td class="px-5 py-3"><code class="text-accent">ADULT_SOURCE</code></td>
+                <td class="px-5 py-3 text-fg-dim">No</td>
+                <td class="px-5 py-3 text-fg-dim">Torrent source: <code>piratebay</code> (default) or <code>all</code> for multi-source</td>
+              </tr>
+              <tr style="background:#0A0A1E;">
+                <td class="px-5 py-3"><code class="text-accent">PORT</code></td>
+                <td class="px-5 py-3 text-fg-dim">No</td>
+                <td class="px-5 py-3 text-fg-dim">Listen port (default 7000)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUICKSTART / DEPLOY ─────────────────────────────────────────────── -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" aria-labelledby="deploy-heading">
+      <div class="max-w-3xl mx-auto">
+        <h2 id="deploy-heading" class="font-display text-3xl sm:text-4xl font-bold text-fg mb-4 text-center">Quickstart</h2>
+        <p class="text-fg-dim text-center mb-10">Docker is the recommended deployment method.</p>
+
+        <div class="rounded-xl overflow-hidden mb-6" style="background:#0A0A1E; border:1px solid #312E81;">
+          <div class="px-4 py-2 flex items-center gap-2" style="background:#1E1B4B; border-bottom:1px solid #312E81;">
+            <span class="text-xs font-mono text-fg-dim">bash</span>
+          </div>
+          <pre class="px-5 py-4 text-sm text-fg-dim overflow-x-auto leading-relaxed font-mono"><code><span class="text-fg-dim"># Clone and build</span>
+git clone https://github.com/akshatsinghkaushik/stremio-tpb-porn.git
+cd stremio-tpb-porn
+docker build -t stremio-tpb-porn .
+
+<span class="text-fg-dim"># Run (set your own BACKEND_URL)</span>
+docker run -p 7000:7000 \
+  -e BACKEND_URL=https://your-backend.example.com \
+  -e REDIS_URL=redis://your-redis:6379 \
+  stremio-tpb-porn
+
+<span class="text-fg-dim"># Open the configure page</span>
+open http://localhost:7000/configure</code></pre>
+        </div>
+
+        <p class="text-fg-dim text-sm text-center">
+          See <a href="development.md" class="text-accent underline hover:no-underline">docs/development.md</a> for local development, Node --watch mode, and the full project layout.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── FAQ ───────────────────────────────────────────────────────────────── -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" style="background:#0A0A1E;" aria-labelledby="faq-heading">
+      <div class="max-w-2xl mx-auto">
+        <h2 id="faq-heading" class="font-display text-3xl sm:text-4xl font-bold text-fg mb-10 text-center">FAQ</h2>
+        <div class="space-y-3">
+
+          <details class="rounded-xl overflow-hidden group" style="background:#1E1B4B; border:1px solid #312E81;">
+            <summary class="px-6 py-4 cursor-pointer flex items-center justify-between font-display font-medium text-fg select-none list-none">
+              Do I need a debrid account?
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 text-fg-dim transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-5 pt-2 text-fg-dim text-sm leading-relaxed" style="border-top:1px solid #312E81;">
+              No. Without a debrid account the addon returns P2P magnet streams that Stremio plays via its built-in torrent client. A debrid account (Real-Debrid, TorBox, etc.) adds instant CDN streams that are much faster and more reliable.
+            </div>
+          </details>
+
+          <details class="rounded-xl overflow-hidden group" style="background:#1E1B4B; border:1px solid #312E81;">
+            <summary class="px-6 py-4 cursor-pointer flex items-center justify-between font-display font-medium text-fg select-none list-none">
+              Where are my API keys stored?
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 text-fg-dim transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-5 pt-2 text-fg-dim text-sm leading-relaxed" style="border-top:1px solid #312E81;">
+              Nowhere on the server. Keys are encoded in your personal install URL as base64url JSON and are never logged or persisted server-side. Each Stremio request includes the key in the URL segment decoded at request time.
+            </div>
+          </details>
+
+          <details class="rounded-xl overflow-hidden group" style="background:#1E1B4B; border:1px solid #312E81;">
+            <summary class="px-6 py-4 cursor-pointer flex items-center justify-between font-display font-medium text-fg select-none list-none">
+              What is the multi-instance split?
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 text-fg-dim transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-5 pt-2 text-fg-dim text-sm leading-relaxed" style="border-top:1px solid #312E81;">
+              Stremio has a manifest size limit. The full catalog set (dozens of studios × 2 sort orders × 2 quality tiers) would exceed it. The addon automatically splits large installs into multiple addon instances, each with ≤30 catalog bases. Each gets a unique manifest ID so they coexist in the sidebar.
+            </div>
+          </details>
+
+          <details class="rounded-xl overflow-hidden group" style="background:#1E1B4B; border:1px solid #312E81;">
+            <summary class="px-6 py-4 cursor-pointer flex items-center justify-between font-display font-medium text-fg select-none list-none">
+              What is TPDB and do I need an API key?
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 text-fg-dim transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-5 pt-2 text-fg-dim text-sm leading-relaxed" style="border-top:1px solid #312E81;">
+              TPDB (ThePornDB) is an adult scene metadata database. It enriches catalog items with clean titles, performer names, cover art, and descriptions. The key is optional - without it you still get raw catalog results and cover images from torrent pages. Once any user with a key matches a torrent, the metadata is cached and shared with everyone (30-day TTL).
+            </div>
+          </details>
+
+          <details class="rounded-xl overflow-hidden group" style="background:#1E1B4B; border:1px solid #312E81;">
+            <summary class="px-6 py-4 cursor-pointer flex items-center justify-between font-display font-medium text-fg select-none list-none">
+              Is the source code open?
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 text-fg-dim transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-5 pt-2 text-fg-dim text-sm leading-relaxed" style="border-top:1px solid #312E81;">
+              Yes. The code lives at <a href="https://github.com/akshatsinghkaushik/stremio-tpb-porn" class="text-accent underline hover:no-underline">github.com/akshatsinghkaushik/stremio-tpb-porn</a> under the GNU GPL v3 licence. Issues, pull requests, and discussion are welcome.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+  <footer class="py-12 px-4 sm:px-6 lg:px-8" style="background:#08081A; border-top:1px solid #1E1B4B;" role="contentinfo">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="text-center sm:text-left">
+          <p class="font-display font-semibold text-fg mb-1">TPB 4K Porn - Stremio Addon</p>
+          <p class="text-fg-dim text-sm">Open-source · GPL-3.0 · <span id="year"></span></p>
+        </div>
+        <nav class="flex flex-wrap gap-x-6 gap-y-2 justify-center" aria-label="Footer navigation">
+          <a href="https://github.com/akshatsinghkaushik/stremio-tpb-porn" class="text-fg-dim text-sm hover:text-accent transition-colors">GitHub</a>
+          <a href="architecture.md" class="text-fg-dim text-sm hover:text-accent transition-colors">Architecture</a>
+          <a href="code-structure.md" class="text-fg-dim text-sm hover:text-accent transition-colors">Code</a>
+          <a href="configuration.md" class="text-fg-dim text-sm hover:text-accent transition-colors">Config</a>
+          <a href="providers-and-streams.md" class="text-fg-dim text-sm hover:text-accent transition-colors">Providers</a>
+          <a href="development.md" class="text-fg-dim text-sm hover:text-accent transition-colors">Development</a>
+          <a href="privacy.html" class="text-fg-dim text-sm hover:text-accent transition-colors">Privacy</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

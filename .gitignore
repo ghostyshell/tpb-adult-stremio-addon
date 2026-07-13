@@ -1,0 +1,16 @@
+node_modules/
+.env
+*.log
+.DS_Store
+.next/
+dist/
+
+# Local agent instructions
+.claude/agents/
+graphify-out/
+coverage/
+
+# Local-only Sliplane SSH debug instructions (carry service handles - never commit)
+.claude/agents/sliplane-ssh.md
+.cursor/agents/sliplane-ssh.md
+.opencode/agents/sliplane-ssh.md
